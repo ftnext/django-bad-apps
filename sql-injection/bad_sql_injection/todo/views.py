@@ -13,4 +13,8 @@ def todo_list(request):
             "WHERE todo = '{}';".format(todo_str)
         )
         todos = Todo.objects.raw(sql)
+
+        # Correct implementation:
+        # todos = Todo.objects.filter(todo=todo_str)
+
     return render(request, "todo/list.html", {"todos": todos})
