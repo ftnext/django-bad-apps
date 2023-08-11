@@ -1,0 +1,22 @@
+[
+    {
+        "model": "todo.todo",
+        "pk": 1,
+        "fields": {
+            "id_str": "admin",
+            "todo": "パソコンを買う",
+            "created_date": "2023-07-20T15:00:00Z",
+            "due_date": "2023-07-22"
+        }
+    },
+    {
+        "model": "todo.todo",
+        "pk": 2,
+        "fields": {
+            "id_str": "wasbook",
+            "todo": "依頼の原稿を書く",
+            "created_date": "2023-07-20T15:00:00Z",
+            "due_date": "2023-07-28"
+        }
+    }
+]
