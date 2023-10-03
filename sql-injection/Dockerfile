@@ -7,3 +7,5 @@ FROM python:3.11-bookworm
 WORKDIR /code
 COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY bad_sql_injection /code/
+COPY entrypoint.sh /code/
+CMD [ "./entrypoint.sh" ]
