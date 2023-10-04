@@ -1,0 +1,18 @@
+{
+    "request": {
+        "urlPath": "/evil",
+        "method": "GET",
+        "queryParameters": {
+            "cookie": {
+                "matches": ".*"
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "body": "Your cookie is '{{ request.query.cookie }}'",
+        "transformers": [
+            "response-template"
+        ]
+    }
+}
