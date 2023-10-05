@@ -4,7 +4,7 @@ services:
   evil-server:
     image: wiremock/wiremock:3.1.0-1
     volumes:
-      - ./evil-server:/home/wiremock
+      - ./environments/evil-server:/home/wiremock
     ports:
       - "8080:8080"
     command: ["--global-response-templating", "--verbose", "--disable-banner"]
