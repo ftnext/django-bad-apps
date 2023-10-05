@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     path("", views.example, name="example"),
     path("alert/", views.alert, name="alert"),
+    path("send/", views.send, name="send"),
 ]

