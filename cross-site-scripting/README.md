@@ -4,15 +4,7 @@
 
 カレントディレクトリは cross-site-scripting
 
-`vim bad_xss/.env`
-
-```
-DEBUG=True
-SECRET_KEY=' django.core.management.utils.get_random_secret_key を使って生成した値に置き換える '
-DATABASE_URL=postgres://developer:mysecretpassword@db/badapp
-```
-
-Then run `docker compose up -d` （db・web・evil-server起動）
+Run `docker compose up -d` （db・web・evil-server起動）
 
 - JavaScriptコードが実行されるページ（`HttpResponse`で返している）
   - http://127.0.0.1:8000/example/
@@ -35,9 +27,10 @@ Then run `docker compose up -d` （db・web・evil-server起動）
 
 `vim bad_xss/.env`
 
-```diff
--DATABASE_URL=postgres://developer:mysecretpassword@db/badapp
-+DATABASE_URL=postgres://developer:mysecretpassword@127.0.0.1:5432/badapp
+```
+DEBUG=True
+SECRET_KEY=' django.core.management.utils.get_random_secret_key を使って生成した値に置き換える '
+DATABASE_URL=postgres://developer:mysecretpassword@127.0.0.1:5432/badapp
 ```
 
 docker-compose.ymlのservicesのwebをコメントアウト（dbとevil-serverを動かす）
